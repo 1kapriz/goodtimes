@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Goodtimes Games</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 200px;
+            background: #111;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 12px;
+            background: none;
+            border: none;
+            color: white;
+            text-align: left;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .sidebar button:hover {
+            background: #333;
+        }
+
+        /* Content */
+        .content {
+            flex: 1;
+            background: black;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>Goodtimes</h2>
+
+    <button onclick="loadGame('ships')">Ships 3D</button>
+    <button onclick="loadGame('tanks')">Tanks 3D</button>
+    <button onclick="loadGame('kart')">Kart Bros</button>
+    <button onclick="loadGame('baseball')">Baseball Bros</button>
+</div>
+
+<div class="content">
+    <iframe id="gameFrame"
+        src="https://yp3d.com/ships3d"
+        allow="fullscreen; pointer-lock"
+        allowfullscreen>
+    </iframe>
+</div>
+
+<script>
+function loadGame(game) {
+    const frame = document.getElementById("gameFrame");
+
+    if (game === "ships") {
+        frame.src = "https://yp3d.com/ships3d";
+    }
+
+    if (game === "tanks") {
+        frame.src = "https://yp3d.com/tanks3d/";
+    }
+
+    if (game === "kart") {
+        frame.src = "https://kartbros.io/";
+    }
+
+    if (game === "baseball") {
+        frame.src = "https://baseballbros.io/";
+    }
+}
+</script>
+
+</body>
+</html>
