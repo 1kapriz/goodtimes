@@ -17,12 +17,18 @@
             width: 200px;
             background: #111;
             color: white;
-            padding-top: 20px;
+            transition: width 0.3s ease;
+            overflow: hidden;
+        }
+
+        .sidebar.collapsed {
+            width: 60px;
         }
 
         .sidebar h2 {
             text-align: center;
-            margin-bottom: 30px;
+            padding: 15px 0;
+            margin: 0;
         }
 
         .sidebar button {
@@ -38,6 +44,20 @@
 
         .sidebar button:hover {
             background: #333;
+        }
+
+        /* Toggle Button */
+        .toggle-btn {
+            background: #222;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .toggle-btn:hover {
+            background: #444;
         }
 
         /* Content */
@@ -56,7 +76,8 @@
 
 <body>
 
-<div class="sidebar">
+<div class="sidebar" id="sidebar">
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
     <h2>Goodtimes</h2>
 
     <button onclick="loadGame('ships')">Ships 3D</button>
@@ -74,21 +95,22 @@
 </div>
 
 <script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("collapsed");
+}
+
 function loadGame(game) {
     const frame = document.getElementById("gameFrame");
 
     if (game === "ships") {
         frame.src = "https://yp3d.com/ships3d";
     }
-
     if (game === "tanks") {
         frame.src = "https://yp3d.com/tanks3d/";
     }
-
     if (game === "kart") {
         frame.src = "https://kartbros.io/";
     }
-
     if (game === "baseball") {
         frame.src = "https://baseballbros.io/";
     }
